@@ -20,17 +20,10 @@ void CalculateYRP(int16_t AccX ,int16_t AccY ,int16_t AccZ ,int16_t GyroX ,int16
 	GyroX /= 1310;
 	GyroY /= 1310;
 	GyroZ /= 1310;
-
-	
-	//accAngleX = (atan(AccY / sqrt(pow(AccX , 2) + pow(AccZ , 2))) * 180 / 3.14);
-	//accAngleY = (atan(-1 * AccX / sqrt(pow(AccY , 2) + pow(AccZ , 2)))*180 / 3.14);
-	
-	gyroAngleX = gyroAngleX + GyroX;
-	gyroAngleY = gyroAngleY + GyroY;
 	
 	Yaw = Yaw + GyroZ;
-	Roll = gyroAngleX;
-	Pitch = gyroAngleY;
+	Roll = Roll + GyroX;
+	Pitch = Pitch + GyroY;
 	
 }
 int main(void)
